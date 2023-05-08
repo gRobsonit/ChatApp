@@ -16,7 +16,8 @@ function updateMessages() {
     messages.forEach(messages => {
         nachrichtenHTML += '<li class="messages">${messages.text} - $
         {messages.username}</li>'
-    }
+    });
+    nachrichtenliste.innerHTML+= nachrichtenHTML 
 }    
 
 
