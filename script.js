@@ -14,8 +14,7 @@ function updateMessages() {
     nachrichtenliste.innerHTML = ""
     nachrichtenHTML = ""
     messages.forEach(messages => {
-        nachrichtenHTML += '<li class="messages">${messages.text} - $
-        {messages.username}</li>'
+        nachrichtenHTML += `<li class="messages">${messages.text} - ${messages.username}</li>`
     });
     nachrichtenliste.innerHTML+= nachrichtenHTML 
 }    
@@ -38,4 +37,4 @@ function submitMessage() {
         updateMessages()
     }}
 
-document.getElementById("submitButton").onclick = submitMessage;
+//document.getElementById("submitButton").onclick = submitMessage;

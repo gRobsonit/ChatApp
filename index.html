@@ -12,7 +12,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="script" href="script.js">
 
 </head>
 
@@ -30,12 +29,60 @@
             </div>
             <div class="input">
                 <input type="text" id="input" placeholder="Nachricht">
-                <button id="submitButton">senden</button>
-                <button onclick = "submitMessage()" >Absenden</button>
+                <!--button id="submitButton">senden</button-->
+                <button onclick = "submitMessage" >Absenden</button>
+                <ul id="messages">
+                    <li></li>
+                </ul>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script>
+        
+        let messages = [
+    {
+        author: "Ding",
+        message: "Hallo zusammen"
+    },
+    {
+        author: "Dong",
+        message: "Hallo zurück"
+    }
+]
+
+function updateMessages() {
+    let nachrichtenliste = document.getElementById("nachrichten")
+    nachrichtenliste.innerHTML = ""
+    nachrichtenHTML = ""
+    messages.forEach(messages => {
+        nachrichtenHTML += `<li class="messages">${messages.text} - ${messages.username}</li>`
+    });
+    nachrichtenliste.innerHTML+= nachrichtenHTML 
+}    
+
+
+
+
+
+function submitMessage() {
+    text = document.getElementById("messages").value
+    username = document.getElementById("username").value
+    if (username == "" || text == "") {
+        return
+
+        messages.push({
+            text: text,
+            username: username
+        })
+        
+        updateMessages()
+    }}
+
+//document.getElementById("submitButton").onclick = submitMessage;
+    </script>
 
 </body>
 
