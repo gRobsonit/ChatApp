@@ -10,22 +10,31 @@ let messages = [
 ]
 
 function updateMessages() {
-    text = document.getElementById("messages").value
-    username = document.getElementById("username").value
-    if (username == "" || text == "") {
-        return
+    let nachrichtenliste = document.getElementById("messages")
+    nachrichtenliste.innerHTML = ""
+    nachrichtenHTML = ""
+    messages.forEach(message => {
+        nachrichtenHTML += `<li class="messages">${message.text} - ${message.username}</li>`
+    });
+    nachrichtenliste.innerHTML+= nachrichtenHTML 
+}    
 
-comments.push({
-    text: text,
-    
 
-})
 
-}
 
 
 function submitMessage() {
-
+    let nachricht = document.getElementById("nachricht").value
+    let username = document.getElementById("username").value
+    if (username == "" || nachricht == "") {
+        return
+    }
+        messages.push({
+            nachricht: nachricht,
+            username: username
+        })
+        
+        updateMessages()
+    
 }
 
-document.getElementById("submitButton").onclick = submitMessage;
