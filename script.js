@@ -10,11 +10,11 @@ let messages = [
 ]
 
 function updateMessages() {
-    let nachrichtenliste = document.getElementById("nachrichten")
+    let nachrichtenliste = document.getElementById("messages")
     nachrichtenliste.innerHTML = ""
     nachrichtenHTML = ""
-    messages.forEach(messages => {
-        nachrichtenHTML += `<li class="messages">${messages.text} - ${messages.username}</li>`
+    messages.forEach(message => {
+        nachrichtenHTML += `<li class="messages">${message.text} - ${message.username}</li>`
     });
     nachrichtenliste.innerHTML+= nachrichtenHTML 
 }    
@@ -24,17 +24,17 @@ function updateMessages() {
 
 
 function submitMessage() {
-    text = document.getElementById("messages").value
-    username = document.getElementById("username").value
-    if (username == "" || text == "") {
+    let nachricht = document.getElementById("nachricht").value
+    let username = document.getElementById("username").value
+    if (username == "" || nachricht == "") {
         return
-
+    }
         messages.push({
-            text: text,
+            nachricht: nachricht,
             username: username
         })
         
         updateMessages()
-    }}
+    
+}
 
-//document.getElementById("submitButton").onclick = submitMessage;
