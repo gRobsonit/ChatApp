@@ -10,30 +10,16 @@ const firebaseConfig ={
     appId:"1:787327787927:web:a63c242f4ba509f53c1ad2"
 };
 
-let messages = [
-    {
-        author: "Ding",
-        message: "Hallo zusammen"
-    },
-    {
-        author: "Dong",
-        message: "Hallo zurück"
-    }
-]
-
-function updateMessages() {
+function updateMessages(messages) {
     let nachrichtenliste = document.getElementById("messages")
     nachrichtenliste.innerHTML = ""
     nachrichtenHTML = ""
     messages.forEach(message => {
         nachrichtenHTML += `<li class="messages">${message.text} - ${message.username}</li>`
     });
-    nachrichtenliste.innerHTML+= nachrichtenHTML 
+    nachrichtenliste.innerHTML+= nachrichtenHTML
+
 }    
-
-
-
-
 
 function submitMessage() {
     let nachricht = document.getElementById("nachricht").value
@@ -45,14 +31,10 @@ function submitMessage() {
             nachricht: nachricht,
             username: username
         })
-        
-        updateMessages()
-    
-        
+         
 }
 const app =initializeApp(firebaseConfig);
 const db =getFirestore();
-// Eine Anfrage definieren
 const q =query(collection(db,"messages"),orderBy("timestamp"));
 
 const unsubscribe =onSnapshot(q,(querySnapshot)=>{
@@ -61,7 +43,7 @@ const unsubscribe =onSnapshot(q,(querySnapshot)=>{
         messages.push(doc.data());
     
     });
-    updateComments(messages)
+    updateMessages(messages)
 });
 
 
