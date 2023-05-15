@@ -13,12 +13,11 @@ const firebaseConfig ={
 function updateMessages(messages) {
     let nachrichtenliste = document.getElementById("messages")
     nachrichtenliste.innerHTML = ""
-    nachrichtenHTML = ""
+    let nachrichtenHTML = ""
     messages.forEach(message => {
-        nachrichtenHTML += `<li class="messages">${message.text} - ${message.username}</li>`
+        nachrichtenHTML += `<li class="messages">${message.message} - ${message.author}</li>`
     });
     nachrichtenliste.innerHTML+= nachrichtenHTML
-
 }    
 
 function submitMessage() {
@@ -30,13 +29,12 @@ function submitMessage() {
         messages.push({
             nachricht: nachricht,
             username: username
-        })
-         
+        })    
 }
+
 const app =initializeApp(firebaseConfig);
 const db =getFirestore();
 const q =query(collection(db,"messages"),orderBy("timestamp"));
-
 const unsubscribe =onSnapshot(q,(querySnapshot)=>{
     const messages =[];            
     querySnapshot.forEach((doc)=>{                
