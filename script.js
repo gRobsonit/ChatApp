@@ -20,17 +20,21 @@ function updateMessages(messages) {
     nachrichtenliste.innerHTML+= nachrichtenHTML
 }    
 
-function submitMessage() {
+async function submitMessage() {
     let nachricht = document.getElementById("nachricht").value
     let username = document.getElementById("username").value
     if (username == "" || nachricht == "") {
         return
     }
-        messages.push({
-            nachricht: nachricht,
-            username: username
-        })    
+        
+    const docRef = await addDoc(collection(db, "messages"), {
+        message: nachricht,
+        author: username,
+        timestamp: Timestamp.now(),
+    });    
 }
+
+document.getElementById("submitButton").onclick = submitMessage;
 
 const app =initializeApp(firebaseConfig);
 const db =getFirestore();
@@ -43,5 +47,7 @@ const unsubscribe =onSnapshot(q,(querySnapshot)=>{
     });
     updateMessages(messages)
 });
+
+
 
 
