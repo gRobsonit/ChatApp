@@ -15,7 +15,7 @@ function updateMessages(messages) {
     nachrichtenliste.innerHTML = ""
     let nachrichtenHTML = ""
     messages.forEach(message => {
-        nachrichtenHTML += `<li class="messages">${message.message} - ${message.author}</li>`
+        nachrichtenHTML += `<div class="message"><div class="text">${message.message}</div><div class="author">${message.author}</div></div>`
     });
     nachrichtenliste.innerHTML+= nachrichtenHTML
 }    
