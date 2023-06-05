@@ -34,6 +34,25 @@ async function submitMessage() {
     });    
 }
 
+function syncMessages() {
+    let messageContainer = document.getElementById("messages")
+    let messages = messageContainer.childNodes;
+    let username = document.getElementById("username").value
+    
+    messages.forEach(message => {
+    let author = message.querySelector(".author").textContent;
+    let nachricht = message.querySelector(".text").textContent;
+    
+    
+    if (author == username) {
+    message.classList.add("own")
+    }
+    
+    });
+    }
+let inputField = document.getElementById("username")
+inputField.addEventListener('input', syncMessages);
+inputField.addEventListener('propertychange', syncMessages);
 document.getElementById("submitButton").onclick = submitMessage;
 
 const app =initializeApp(firebaseConfig);
@@ -47,7 +66,3 @@ const unsubscribe =onSnapshot(q,(querySnapshot)=>{
     });
     updateMessages(messages)
 });
-
-
-
-
