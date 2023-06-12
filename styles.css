@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+    background-image: url("https://media.istockphoto.com/id/1399980043/de/foto/technologieinnovation-moderner-futuristischer-hintergrund.webp?b=1&s=170667a&w=0&k=20&c=Z80gyk3eA5I3lmlc57_A_-RlSIMX4uonWO7hYYo_zO8=");
 }
 
 .header {
@@ -34,7 +34,6 @@
 }
 .messages {
     display:flex;
-   /* align-items: center;*/
     flex-direction: column;
     flex-grow: 1;
     margin-left: 20px;
@@ -65,14 +64,14 @@
 
 
 .text {
-    background-color: red;
+    background-color: rgb(246, 0, 246);
     padding: 5px;
     margin-right: 5px;
     border-radius: 25px;
 }
 .author {
     font-style: italic;
-    background-color: green;
+    background-color:rgb(168, 0, 240);
     border-radius: 25px;
     padding: 5px;
     background-position: center;
