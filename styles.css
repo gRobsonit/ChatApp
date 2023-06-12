@@ -38,9 +38,13 @@
     flex-direction: column;
     flex-grow: 1;
     margin-left: 20px;
+<<<<<<< HEAD
+   overflow-y: scroll;
+=======
     overflow-y: scroll;
    
     
+>>>>>>> 81dadda34fd7f6e3c4b174482401a3f6bad5ed71
 }
 .message {
     font-family: 'Times New Roman', Times, serif;
